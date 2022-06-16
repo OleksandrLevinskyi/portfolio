@@ -12,7 +12,24 @@
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
-    <h1 class="fit-content mx-auto pt-5">Oleksandr Levinskyi</h1>
+    <b-row class="text-center pt-5">
+      <h1>Oleksandr Levinskyi</h1>
+
+      <div>
+        <b-link href="https://github.com/OleksandrLevinskyi" target=”_blank”>
+          <b-icon-github class="h1 m-2 text-black"/>
+        </b-link>
+        <b-link href="https://www.linkedin.com/in/oleksandrlevinskyi" target=”_blank”>
+          <b-icon-linkedin class="h1 m-2"/>
+        </b-link>
+        <b-link href="https://www.youtube.com/channel/UCicx8-vwGbcytSferp2_iQg" target=”_blank”>
+          <b-icon-youtube class="h1 m-2 text-danger"/>
+        </b-link>
+      </div>
+
+      <p class="text-med pt-5">I am a Software Developer at Vehikl.</p>
+      <p class="text-med">I am also a Google Developer Student Club Lead.</p>
+    </b-row>
   </div>
 </template>
 
@@ -42,8 +59,8 @@ canvas {
   vertical-align: bottom;
 }
 
-.fit-content {
-  width: fit-content;
+.text-med{
+  font-size: 1.1rem;
 }
 
 #particles-js {
