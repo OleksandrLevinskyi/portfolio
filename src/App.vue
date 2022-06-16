@@ -1,7 +1,18 @@
 <template>
   <div id="app">
-    <h1>Oleksandr Levinskyi</h1>
     <div id="particles-js"></div>
+    <b-navbar toggleable="sm" class="pb-5">
+      <b-navbar-toggle target="nav-collapse" class="ms-4"></b-navbar-toggle>
+
+      <b-collapse id="nav-collapse" is-nav>
+        <b-navbar-nav class="mx-auto">
+          <b-nav-item class="px-5" href="#" active>About</b-nav-item>
+          <b-nav-item class="px-5" href="#">Projects</b-nav-item>
+          <b-nav-item class="px-5" href="#">Community</b-nav-item>
+        </b-navbar-nav>
+      </b-collapse>
+    </b-navbar>
+    <h1 class="fit-content mx-auto pt-5">Oleksandr Levinskyi</h1>
   </div>
 </template>
 
@@ -31,13 +42,18 @@ canvas {
   vertical-align: bottom;
 }
 
+.fit-content {
+  width: fit-content;
+}
+
 #particles-js {
+  z-index: -1;
   position: absolute;
   width: 100%;
   height: 100%;
   background-color: #fff;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: 50% 50%;
+  background-position: center;
 }
 </style>
