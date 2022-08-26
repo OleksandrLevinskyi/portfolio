@@ -1,25 +1,22 @@
 <template>
   <div>
     <div id="particles-js"></div>
-    <b-navbar toggleable="sm" class="pb-5">
-      <b-navbar-toggle target="nav-collapse" class="ms-4"></b-navbar-toggle>
-
-      <b-collapse id="nav-collapse" is-nav>
-        <b-navbar-nav class="w-100">
-          <b-row align-h="around" class="w-100 text-center mx-auto text-black">
-            <b-col cols="2">
-              <b-nav-item href="#/about" class="text-decoration-underline">ABOUT</b-nav-item>
-            </b-col>
-            <b-col cols="2">
-              <b-nav-item href="#/projects">PROJECTS</b-nav-item>
-            </b-col>
-            <b-col cols="2">
-              <b-nav-item href="#/community">COMMUNITY</b-nav-item>
-            </b-col>
-          </b-row>
-        </b-navbar-nav>
-      </b-collapse>
-    </b-navbar>
+    <b-container class="w-100">
+<!--      <b-row class="text-center mb-0">-->
+<!--        <p>&lt;&lt;&lt; scroll &gt;&gt;&gt;</p>-->
+<!--      </b-row>-->
+      <b-row align-h="around" class="w-100 text-center mx-auto nav-nowrap py-2">
+        <b-col cols="2" class="nav-option">
+          <b-link href="#/about" class="text-decoration-underline text-black fs-3 fw-light">About</b-link>
+        </b-col>
+        <b-col cols="2" class="nav-option">
+          <b-link href="#/projects" class="text-decoration-none text-black fs-3 fw-light">Projects</b-link>
+        </b-col>
+        <b-col cols="2" class="nav-option">
+          <b-link href="#/community" class="text-decoration-none text-black fs-3 fw-light">Community</b-link>
+        </b-col>
+      </b-row>
+    </b-container>
     <component :is="displayedComponent"/>
   </div>
 </template>
@@ -41,9 +38,7 @@ export default {
   name: 'App',
   components: {},
   data() {
-    return {
-      currentPath: window.location.hash
-    }
+    return {currentPath: window.location.hash};
   },
   computed: {
     displayedComponent() {
@@ -66,6 +61,16 @@ export default {
 body {
   margin: 0;
   font-family: 'Space Grotesk', sans-serif;
+}
+
+.nav-nowrap{
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+.nav-option {
+  display: inline-block;
+  float: none;
 }
 
 canvas {
