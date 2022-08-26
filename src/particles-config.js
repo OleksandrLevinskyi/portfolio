@@ -26,7 +26,7 @@ export const particlesConfig = {
             }
         },
         "opacity": {
-            "value": 0.5,
+            "value": .7,
             "random": false,
             "anim": {
                 "enable": false,

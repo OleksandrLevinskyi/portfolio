@@ -1,47 +1,61 @@
 <template>
-  <div id="app">
+  <div>
     <div id="particles-js"></div>
     <b-navbar toggleable="sm" class="pb-5">
       <b-navbar-toggle target="nav-collapse" class="ms-4"></b-navbar-toggle>
 
       <b-collapse id="nav-collapse" is-nav>
-        <b-navbar-nav class="mx-auto">
-          <b-nav-item class="px-5" href="#" active>About</b-nav-item>
-          <b-nav-item class="px-5" href="#">Projects</b-nav-item>
-          <b-nav-item class="px-5" href="#">Community</b-nav-item>
+        <b-navbar-nav class="w-100">
+          <b-row align-h="around" class="w-100 text-center mx-auto text-black">
+            <b-col cols="2">
+              <b-nav-item href="#/about" class="text-decoration-underline">ABOUT</b-nav-item>
+            </b-col>
+            <b-col cols="2">
+              <b-nav-item href="#/projects">PROJECTS</b-nav-item>
+            </b-col>
+            <b-col cols="2">
+              <b-nav-item href="#/community">COMMUNITY</b-nav-item>
+            </b-col>
+          </b-row>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
-    <b-row class="text-center pt-5">
-      <h1>Oleksandr Levinskyi</h1>
-
-      <div>
-        <b-link href="https://github.com/OleksandrLevinskyi" target=”_blank”>
-          <b-icon-github class="h1 m-2 text-black"/>
-        </b-link>
-        <b-link href="https://www.linkedin.com/in/oleksandrlevinskyi" target=”_blank”>
-          <b-icon-linkedin class="h1 m-2"/>
-        </b-link>
-        <b-link href="https://www.youtube.com/channel/UCicx8-vwGbcytSferp2_iQg" target=”_blank”>
-          <b-icon-youtube class="h1 m-2 text-danger"/>
-        </b-link>
-      </div>
-
-      <p class="text-med pt-5">I am a Software Developer at Vehikl.</p>
-      <p class="text-med">I am also a Google Developer Student Club Lead.</p>
-    </b-row>
+    <component :is="displayedComponent"/>
   </div>
 </template>
 
 <script>
 import "particles.js";
 import {particlesConfig} from "./particles-config";
+import About from "./components/About";
+import Projects from "./components/Projects";
+import Community from "./components/Community";
+
+const routes = {
+  '/about': About,
+  '/projects': Projects,
+  '/community': Community,
+}
 
 export default {
   name: 'App',
   components: {},
+  data() {
+    return {
+      currentPath: window.location.hash
+    }
+  },
+  computed: {
+    displayedComponent() {
+      return routes[this.currentPath.slice(1) || '/'] || About
+    }
+  },
   mounted() {
     window.particlesJS("particles-js", particlesConfig);
+
+    window.addEventListener('hashchange', () => {
+      this.currentPath = window.location.hash
+    })
   }
 }
 </script>
@@ -57,10 +71,6 @@ body {
 canvas {
   display: block;
   vertical-align: bottom;
-}
-
-.text-med{
-  font-size: 1.1rem;
 }
 
 #particles-js {
