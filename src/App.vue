@@ -1,21 +1,28 @@
 <template>
   <div>
     <div id="particles-js"></div>
-    <b-container class="w-100 p-0">
-      <b-row align-h="around" class="w-100 text-center mx-auto nav-nowrap py-2">
-        <b-col class="nav-option">
-          <b-link id="about" href="#/about" class="text-decoration-none text-black fs-4 fw-light">About</b-link>
-        </b-col>
-        <b-col class="nav-option">
-          <b-link id="projects" href="#/projects" class="text-decoration-none text-black fs-4 fw-light">Projects
-          </b-link>
-        </b-col>
-        <b-col class="nav-option">
-          <b-link id="community" href="#/community" class="text-decoration-none text-black fs-4 fw-light">Community
-          </b-link>
-        </b-col>
-      </b-row>
-    </b-container>
+
+    <div class="container">
+      <div class="row py-2 d-flex flex-nowrap horizontal-scroll">
+        <div class="col-6 col-sm-4 d-flex justify-content-center">
+          <a id="about" href="#/about" class="text-decoration-none text-black fs-4 fw-light">About</a>
+        </div>
+        <div class="col-6 col-sm-4 d-flex justify-content-center">
+          <a id="projects" href="#/projects" class="text-decoration-none text-black fs-4 fw-light">Projects</a>
+        </div>
+        <div class="col-6 col-sm-4 d-flex justify-content-center">
+          <a id="community" href="#/community" class="text-decoration-none text-black fs-4 fw-light">Community</a>
+        </div>
+      </div>
+      <div id="scroll-menu-label" class="row text-center display-none">
+        <p>
+          <b-icon-arrow-left class="text-black"/>
+          scroll menu
+          <b-icon-arrow-right class="text-black"/>
+        </p>
+      </div>
+    </div>
+
     <component :is="displayedComponent"/>
   </div>
 </template>
@@ -72,16 +79,18 @@ body {
   font-family: 'Space Grotesk', sans-serif;
 }
 
-.nav-nowrap {
+.horizontal-scroll {
   white-space: nowrap;
   overflow-x: auto;
 }
 
-.nav-option {
-  display: inline-block;
-  float: none;
+@media only screen and (min-width: 576px) {
+  #scroll-menu-label {
+    display: none;
+  }
 }
 
+/*** background ***/
 canvas {
   display: block;
   vertical-align: bottom;
