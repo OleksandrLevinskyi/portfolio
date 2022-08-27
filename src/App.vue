@@ -2,18 +2,15 @@
   <div>
     <div id="particles-js"></div>
     <b-container class="w-100 p-0">
-      <!--      <b-row class="text-center mb-0">-->
-      <!--        <p>&lt;&lt;&lt; scroll &gt;&gt;&gt;</p>-->
-      <!--      </b-row>-->
       <b-row align-h="around" class="w-100 text-center mx-auto nav-nowrap py-2">
-        <b-col cols="2" class="nav-option">
+        <b-col class="nav-option">
           <b-link id="about" href="#/about" class="text-decoration-none text-black fs-4 fw-light">About</b-link>
         </b-col>
-        <b-col cols="2" class="nav-option">
+        <b-col class="nav-option">
           <b-link id="projects" href="#/projects" class="text-decoration-none text-black fs-4 fw-light">Projects
           </b-link>
         </b-col>
-        <b-col cols="2" class="nav-option">
+        <b-col class="nav-option">
           <b-link id="community" href="#/community" class="text-decoration-none text-black fs-4 fw-light">Community
           </b-link>
         </b-col>
@@ -47,8 +44,8 @@ export default {
       return routes[this.currentPath.slice(1) || '/'] || About
     }
   },
-  methods:{
-    updateNavBarStyling(){
+  methods: {
+    updateNavBarStyling() {
       ["about", "projects", "community"].forEach(id => document.getElementById(id)?.classList.remove("text-decoration-underline"));
       const currentlySelectedLink = document.getElementById(this.currentPath.slice(2) || "about");
       currentlySelectedLink?.classList.add("text-decoration-underline");
