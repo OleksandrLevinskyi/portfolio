@@ -84,6 +84,10 @@ body {
   overflow-x: auto;
 }
 
+.big-icon {
+  font-size: 2.5rem;
+}
+
 @media only screen and (min-width: 576px) {
   #scroll-menu-label {
     display: none;

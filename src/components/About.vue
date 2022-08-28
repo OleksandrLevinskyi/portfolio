@@ -35,10 +35,6 @@ export default {
 </script>
 
 <style scoped>
-.big-icon {
-  font-size: 2.5rem;
-}
-
 .vh-75 {
   height: 75vh;
 }
